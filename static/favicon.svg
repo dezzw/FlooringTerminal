@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="62.529392pt"
+   height="66.524597pt"
+   id="svg34"
+   viewBox="0 0 62.529392 66.524597"
+   sodipodi:docname="欧阳丶wl(Flooring Terminal).cdr"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs35" />
+  <sodipodi:namedview
+     id="namedview34"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt" />
+  <g
+     id="Layer1000"
+     transform="translate(-33.679599,-675.45609)">
+    <defs
+       id="defs14">
+      <linearGradient
+         id="grad1">
+        <stop
+           offset="0%"
+           stop-color="#c6a564"
+           stop-opacity="1.0000"
+           id="stop13" />
+        <stop
+           offset="100%"
+           stop-color="#a77f65"
+           stop-opacity="1.0000"
+           id="stop14" />
+      </linearGradient>
+      <linearGradient
+         xlink:href="#grad1"
+         id="grad2"
+         x1="34.738888"
+         y1="654.8595"
+         x2="34.738888"
+         y2="719.35553"
+         gradientTransform="scale(0.9695071,1.031452)"
+         gradientUnits="userSpaceOnUse" />
+    </defs>
+    <path
+       d="M 33.6796,675.4561 H 96.209 v 16.4452 H 75.2108 v 50.0794 H 54.6775 V 691.9013 H 33.6796 Z"
+       style="fill:url(#grad2)"
+       id="path14" />
+    <defs
+       id="defs16" />
+    <defs
+       id="defs18" />
+    <defs
+       id="defs20" />
+    <defs
+       id="defs22" />
+    <defs
+       id="defs24" />
+    <defs
+       id="defs26" />
+    <defs
+       id="defs28" />
+    <defs
+       id="defs30" />
+    <defs
+       id="defs32" />
+    <defs
+       id="defs34" />
+  </g>
+</svg>

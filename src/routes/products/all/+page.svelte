@@ -1,125 +1,76 @@
 <script>
-  import "../../../app.css";
+	import '../../../app.css';
+	import { productsData } from '../../../store';
+	import Device from 'svelte-device-info';
 
-  let products = [
-    {
-      name: "Bay",
-      path: "/6mm/Bay.JPG",
-      type: "6mm"
-    },
-    {
-      name: "High Park",
-      path: "/6mm/HighPark.JPG",
-      type: "6mm"
-    },
-    {
-      name: "Kipling",
-      path: "/6mm/Kipling.JPG",
-      type: "6mm"
-    },
-    {
-      name: "Spadina",
-      path: "/6mm/SPADINA.JPG",
-      type: "6mm"
-    },
-    {
-      name: "Summer Hill",
-      path: "/6mm/Summerhill.JPG",
-      type: "6mm"
-    },
-    {
-      name: "Union",
-      path: "/6mm/Union.JPG",
-      type: "6mm"
-    },
-    {
-      name: "Wellesley",
-      path: "/6mm/Wellesley.JPG",
-      type: "6mm"
-    },
-    {
-      name: "Wynford",
-      path: "/6mm/Wynford.JPG",
-      type: "6mm"
-    },
-    {
-      name: "Changi",
-      path: "/7mm/CHANGI.JPG",
-      type: "7mm"
-    },
-    {
-      name: "Dubai",
-      path: "/7mm/Dubai.JPG",
-      type: "7mm"
-    },
-    {
-      name: "Hamad",
-      path: "/7mm/Hamad.JPG",
-      type: "7mm"
-    },
-    {
-      name: "Haneda",
-      path: "/7mm/HANEDA.JPG",
-      type: "7mm"
-    },
-    {
-      name: "lncheon",
-      path: "/7mm/lncheon.JPG",
-      type: "7mm"
-    },
-    {
-      name: "Long Beach",
-      path: "/7mm/LongBeach.jpeg",
-      type: "7mm"
-    },
-    {
-      name: "Meilan",
-      path: "/7mm/Meilan.JPG",
-      type: "7mm"
-    },
-    {
-      name: "Pearson",
-      path: "/7mm/Pearson.JPG",
-      type: "7mm"
-    },
-  ];
+	// Read the array from the store
+	$: products = $productsData;
 </script>
 
-<style>
-  div {
-    color: white;
-  }
-
-  /* .scene:hover { */
-  /*   opacity: 0; */
-  /* } */
-
-  /* .scene:focus + .flooring { */
-  /*   display: none; */
-  /* } */
-
-</style>
-
 <div>
-  <div class="grid sm:grid-cols-3 grid-cols-1 gap-8 justify-items-center m-4">
-    {#each products as product}
-      <div class="card w-96 h-96 glass shadow-md shadow-gray-800" >
-	<figure > 
-	  <img src={product.path} alt={product.name} />
-	</figure>
-	
-	<div class="card-body">
-	  <h2 class="card-title">
-	    {product.name}
-	    <div class="badge badge-info">NEW</div>
-	  </h2>
-	  <p>If a dog chews shoes whose shoes does he choose?</p>
-	  <div class="card-actions justify-end">
-	    <div class="badge badge-outline">{product.type}</div> 
-	    <div class="badge badge-outline">Products</div>
-	  </div>
+	<div class="grid sm:grid-cols-3 grid-cols-1 gap-8 justify-items-center m-4">
+		{#each products as product}
+			<div class="card w-96 h-96 glass shadow-md shadow-gray-800">
+				{#if Device.isMobile}
+					<div class="carousel w-full">
+						<figure class="carousel-item w-full relative">
+							<div class="flex absolute top-0 left-0">
+								<div
+									class="w-2 h-2 m-1 rounded-full border border-white relative flex items-center justify-center shadow"
+								>
+									<div class="w-1 h-1 rounded-full bg-white absolute" />
+								</div>
+								<div class="w-2 h-2 my-1 rounded-full border border-white shadow" />
+							</div>
+							<img src={product.path} alt={product.name} />
+						</figure>
+						<figure class="carousel-item w-full relative">
+							<div class="flex absolute top-0 left-0">
+								<div class="w-2 h-2 m-1 rounded-full border border-white shadow" />
+								<div
+									class="w-2 h-2 my-1 rounded-full border border-white relative flex items-center justify-center shadow"
+								>
+									<div class="w-1 h-1 rounded-full bg-white absolute" />
+								</div>
+							</div>
+							<img src={product.scene} alt={product.name} />
+						</figure>
+					</div>
+				{:else}
+					<figure class="card">
+						<img src={product.path} alt={product.name} />
+						<img src={product.scene} alt={product.name} class="img-top" loading="lazy" />
+					</figure>
+				{/if}
+
+				<div class="card-body">
+					<h2 class="card-title">
+						{product.name}
+						<div class="badge badge-info">NEW</div>
+					</h2>
+					{#if product.type == '6mm'}
+						<ul class="font-['Arial']">
+							<li><p><strong>Dimensions:</strong> 7.2"x48"x6mm (24.04 sqft/box)</p></li>
+							<li><p><strong>Wear layer:</strong> 12mil</p></li>
+						</ul>
+					{:else}
+						<ul class="font-['Arial']">
+							<li><p><strong>Dimensions:</strong> 7.2”x60”x7mm (24.35 sqft/box)</p></li>
+							<li><p><strong>Wear layer:</strong> 20mil</p></li>
+						</ul>
+					{/if}
+					<div class="card-actions justify-end">
+						<div class="badge badge-outline">{product.type}</div>
+						<div class="badge badge-outline"><p>Waterproof</p></div>
+					</div>
+				</div>
+			</div>
+		{/each}
 	</div>
-      </div>
-    {/each}
-  </div> 
 </div>
+
+<style>
+	div {
+		color: white;
+	}
+</style>

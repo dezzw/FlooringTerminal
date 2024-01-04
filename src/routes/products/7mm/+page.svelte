@@ -46,8 +46,8 @@
 					<div class="badge badge-info">NEW</div>
 				</h2>
 				<ul class="font-['Arial']">
-					<li><p><strong>Dimensions:</strong> 7.2"x48"x6mm (24.04 sqft/box)</p></li>
-					<li><p><strong>Wear layer:</strong> 12mil</p></li>
+					<li><p><strong>Dimensions:</strong> 7.2”x60”x7mm (24.35 sqft/box)</p></li>
+					<li><p><strong>Wear layer:</strong> 20mil</p></li>
 				</ul>
 				<div class="card-actions justify-end">
 					<div class="badge badge-outline">{product.type}</div>

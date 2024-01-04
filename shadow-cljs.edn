@@ -1,0 +1,4 @@
+{:deps {:aliases [:cljs]}
+ :builds {:app {:target :browser
+                :modules {:main {:init-fn app.core/init}}}}
+ :dev-http {5003 "public/"}}

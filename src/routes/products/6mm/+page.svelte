@@ -1,15 +1,21 @@
 <script>
 	import '../../../app.css';
 	import { productsData } from '../../../store';
-	import Device from 'svelte-device-info';
+	import { Lightbox } from 'svelte-lightbox';
 
 	let products = $productsData.filter((item) => item.type == '6mm');
+
+	let isMobile = false;
+
+	$: {
+		isMobile = window.innerWidth <= 768; // Adjust the breakpoint as needed
+	}
 </script>
 
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-items-center m-4">
 	{#each products as product}
 		<div class="card w-96 h-96 glass">
-			{#if Device.isMobile}
+			{#if isMobile}
 				<div class="carousel w-full">
 					<figure class="carousel-item w-full relative">
 						<div class="flex absolute top-0 left-0">
@@ -20,7 +26,9 @@
 							</div>
 							<div class="w-2 h-2 my-1 rounded-full border border-white shadow" />
 						</div>
-						<img src={product.path} alt={product.name} />
+						<Lightbox>
+							<img src={product.path} alt={product.name} />
+						</Lightbox>
 					</figure>
 					<figure class="carousel-item w-full relative">
 						<div class="flex absolute top-0 left-0">
@@ -31,13 +39,19 @@
 								<div class="w-1 h-1 rounded-full bg-white absolute" />
 							</div>
 						</div>
-						<img src={product.scene} alt={product.name} />
+						<Lightbox>
+							<img src={product.scene} alt={product.name} />
+						</Lightbox>
 					</figure>
 				</div>
 			{:else}
 				<figure class="card">
-					<img src={product.path} alt={product.name} />
-					<img src={product.scene} alt={product.name} class="img-top" loading="lazy" />
+					<Lightbox>
+						<img src={product.path} alt={product.name} />
+					</Lightbox>
+					<Lightbox>
+						<img src={product.scene} alt={product.name} class="img-top" loading="lazy" />
+					</Lightbox>
 				</figure>
 			{/if}
 			<div class="card-body">

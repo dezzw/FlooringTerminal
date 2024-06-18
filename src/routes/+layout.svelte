@@ -99,23 +99,23 @@
 		<i class="bi bi-truck" />
 		<header class="footer-title">Orders</header>
 		<p>To order please email or call:</p>
-		<a class="link" href="mailto:info@flooringterminal.com" title="mailto:info@flooringterminal.com"
-			>info@flooringterminal.com</a
+		<a class="link" href="mailto:info@pureluxgroup.com" title="mailto:info@pureluxgroup.com"
+			>info@pureluxgroup.com</a
 		>
-		<p>(905)-331-8777</p>
+		<p>+1(905)-238-8885</p>
 	</nav>
 	<nav>
 		<i class="bi bi-box-seam" />
 		<header class="footer-title">Pickup</header>
 		<div>Hours: Mon - Fir 9:00am - 5:00pm</div>
-		<div>3400 Landmark Rd unit 7&8, Burlington, ON L7M 1S8</div>
+		<div>1200 Kamato Rd, Mississauga, ON L4W 1Y1</div>
 	</nav>
 	<nav>
 		<i class="bi bi-arrow-repeat" />
 		<header class="footer-title">Returns</header>
 		<p><strong>To initiate the return process, please contact us at: </strong></p>
-		<a class="link" href="mailto:info@flooringterminal.com" title="mailto:info@flooringterminal.com"
-			>info@flooringterminal.com</a
+		<a class="link" href="mailto:info@pureluxgroup.com" title="mailto:info@pureluxgroup.com"
+			>info@pureluxgroup.com</a
 		>
 		<p>
 			Please check the <a class="link" href="/return_policy" title="Return Policy">return policy</a

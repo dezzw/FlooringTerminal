@@ -1,10 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
 	import '../app.css';
-	import Device from 'svelte-device-info';
 	import { productsData } from '../store';
 
 	let hiddenElements = [];
+	let isMobile = false;
 
 	onMount(() => {
 		const observer = new IntersectionObserver((entries) => {
@@ -17,6 +17,8 @@
 			});
 		});
 
+		isMobile = window.innerWidth <= 768; // Adjust the breakpoint as needed
+
 		// @ts-ignore
 		hiddenElements = document.querySelectorAll('.hide');
 		hiddenElements.forEach((el) => observer.observe(el));
@@ -26,19 +28,19 @@
 </script>
 
 <div>
-	{#if Device.isMobile}
-		<section class="hide m-4 show">
+	{#if isMobile}
+		<section class="m-4 show">
 			<div class="text-3xl font-bold">Welcome to</div>
 			<div class="text-4xl font-bold">Flooring Terminal</div>
 			<img class="w-full" src="/7mm/Changi_Scene.jpg" alt="view" />
 			<div class="text-lg">Explore Our Collections</div>
 			<a class="text-md link" href="/products/all">Explore All -></a>
 		</section>
-		<section class="hide m-4">
+		<section class="m-4">
 			<div class="carousel rounded-box">
 				{#each products as product, i}
 					<div class="carousel-item w-full relative flex items-end justify-center">
-						<img src={product.mobile} class="w-full" alt={product.name} />
+						<img src={product.mobile} class="w-full h-full object-cover" alt={product.name} />
 						<div class="absolute flex items-center justify-center m-1">
 							{#each Array(8) as _, j}
 								{#if i == j}
@@ -77,7 +79,7 @@
 					<div
 						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
 					>
-						<a href="#slide4" class="btn btn-circle btn-primary">❮</a>
+						<a href="#slide6" class="btn btn-circle btn-primary">❮</a>
 						<a href="#slide2" class="btn btn-circle btn-primary">❯</a>
 					</div>
 					<div class="absolute transform -translate-y-1/2 top-[80%] left-1/2">
@@ -93,7 +95,7 @@
 								tabindex="0"
 								class="dropdown-content z-[1] card w-96 glass shadow text-primary-content"
 							>
-								<figure><img src="/7mm/Changi.jpg" alt="CHANGI" loading="lazy" /></figure>
+								<figure><img src="/7mm/Changi.JPG" alt="CHANGI" loading="lazy" /></figure>
 								<div class="card-body">
 									<h2 class="card-title">CHANGI</h2>
 									<ul class="font-['Arial']">
@@ -111,7 +113,7 @@
 				</div>
 				<div id="slide2" class="carousel-item relative w-full">
 					<div class="flex items-center justify-center w-full h-full bg-black">
-						<img src="/7mm/Dubai_Scene.jpg" class="h-full w-auto" />
+						<img src="/7mm/Dubai_Scene.jpg" class="h-full w-auto" alt="Dubai" />
 					</div>
 					<div
 						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
@@ -132,7 +134,7 @@
 								tabindex="0"
 								class="dropdown-content z-[1] card w-96 glass shadow text-primary-content"
 							>
-								<figure><img src="/7mm/Dubai.jpg" alt="Dubai" loading="lazy" /></figure>
+								<figure><img src="/7mm/Dubai.JPG" alt="Dubai" loading="lazy" /></figure>
 								<div class="card-body">
 									<h2 class="card-title">DUBAI</h2>
 									<ul class="font-['Arial']">
@@ -150,7 +152,7 @@
 				</div>
 				<div id="slide3" class="carousel-item relative w-full">
 					<div class="flex items-center justify-center w-full h-full bg-black">
-						<img src="/7mm/Hamad_Scene.jpg" class="h-full w-auto" />
+						<img src="/7mm/Gatwick.jpg" class="h-full w-auto" alt="Gatwick" />
 					</div>
 					<div
 						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
@@ -171,7 +173,7 @@
 								tabindex="0"
 								class="dropdown-content z-[1] card w-96 glass shadow text-primary-content"
 							>
-								<figure><img src="/7mm/Hamad.jpg" alt="Hamad" loading="lazy" /></figure>
+								<figure><img src="/7mm/Gatwick.jpg" alt="Gatwick" loading="lazy" /></figure>
 								<div class="card-body">
 									<h2 class="card-title">HAMAD</h2>
 									<ul class="font-['Arial']">
@@ -189,7 +191,7 @@
 				</div>
 				<div id="slide4" class="carousel-item relative w-full">
 					<div class="flex items-center justify-center w-full h-full bg-black">
-						<img src="/7mm/lncheon_Scene.jpg" class="h-full w-auto" />
+						<img src="/7mm/lncheon_Scene.jpg" class="h-full w-auto" alt="Lncheon" />
 					</div>
 					<div
 						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
@@ -210,7 +212,7 @@
 								tabindex="0"
 								class="dropdown-content z-[1] card w-96 glass shadow text-primary-content"
 							>
-								<figure><img src="/7mm/lncheon.jpg" alt="lncheon" loading="lazy" /></figure>
+								<figure><img src="/7mm/lncheon.JPG" alt="lncheon" loading="lazy" /></figure>
 								<div class="card-body">
 									<h2 class="card-title">LNCHEON</h2>
 									<ul class="font-['Arial']">
@@ -228,7 +230,7 @@
 				</div>
 				<div id="slide5" class="carousel-item relative w-full">
 					<div class="flex items-center justify-center w-full h-full bg-black">
-						<img src="/7mm/LongBeach_Scene.jpg" class="h-full w-auto" />
+						<img src="/7mm/Meilan_Scene.jpg" class="h-full w-auto" alt="Meilan" />
 					</div>
 					<div
 						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
@@ -249,46 +251,7 @@
 								tabindex="0"
 								class="dropdown-content z-[1] card w-96 glass shadow text-primary-content"
 							>
-								<figure><img src="/7mm/LongBeach.jpg" alt="LongBeach" loading="lazy" /></figure>
-								<div class="card-body">
-									<h2 class="card-title">Long Beach</h2>
-									<ul class="font-['Arial']">
-										<li><p><strong>Dimensions:</strong> 7.2”x60”x7mm (24.35 sqft/box)</p></li>
-										<li><p><strong>Wear layer:</strong> 20mil</p></li>
-									</ul>
-									<div class="card-actions justify-end">
-										<div class="badge badge-outline">7mm</div>
-										<div class="badge badge-outline">Waterproof</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="slide6" class="carousel-item relative w-full">
-					<div class="flex items-center justify-center w-full h-full bg-black">
-						<img src="/7mm/Meilan_Scene.jpg" class="h-full w-auto" />
-					</div>
-					<div
-						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
-					>
-						<a href="#slide5" class="btn btn-circle btn-primary">❮</a>
-						<a href="#slide7" class="btn btn-circle btn-primary">❯</a>
-					</div>
-					<div class="absolute transform -translate-y-1/2 top-[80%] left-1/2">
-						<div class="dropdown dropdown-left dropdown-end">
-							<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-							<!-- svelte-ignore a11y-label-has-associated-control -->
-							<label
-								tabindex="0"
-								class="btn btn-circle btn-outline text-black border-4 p-0 min-h-0 w-4 h-4 m-1"
-							/>
-							<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-							<div
-								tabindex="0"
-								class="dropdown-content z-[1] card w-96 glass shadow text-primary-content"
-							>
-								<figure><img src="/7mm/Meilan.jpg" alt="Meilan" loading="lazy" /></figure>
+								<figure><img src="/7mm/Meilan.JPG" alt="Meilan" loading="lazy" /></figure>
 								<div class="card-body">
 									<h2 class="card-title">MEILAN</h2>
 									<ul class="font-['Arial']">
@@ -304,14 +267,14 @@
 						</div>
 					</div>
 				</div>
-				<div id="slide7" class="carousel-item relative w-full">
+				<div id="slide6" class="carousel-item relative w-full">
 					<div class="flex items-center justify-center w-full h-full bg-black">
-						<img src="/7mm/Pearson_Scene.jpg" class="h-full w-auto" />
+						<img src="/7mm/Pearson_Scene.jpg" class="h-full w-auto" alt="Pearson" />
 					</div>
 					<div
 						class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
 					>
-						<a href="#slide6" class="btn btn-circle btn-primary">❮</a>
+						<a href="#slide5" class="btn btn-circle btn-primary">❮</a>
 						<a href="#slide1" class="btn btn-circle btn-primary">❯</a>
 					</div>
 					<div class="absolute transform -translate-y-1/2 top-[80%] left-1/2">
@@ -327,7 +290,7 @@
 								tabindex="0"
 								class="dropdown-content z-[1] card w-96 glass shadow text-primary-content"
 							>
-								<figure><img src="/7mm/Pearson.jpg" alt="Pearson" loading="lazy" /></figure>
+								<figure><img src="/7mm/Pearson.JPG" alt="Pearson" loading="lazy" /></figure>
 								<div class="card-body">
 									<h2 class="card-title">PEARSON</h2>
 									<ul class="font-['Arial']">
@@ -348,7 +311,7 @@
 	{/if}
 </div>
 
-{#if Device.isMobile}
+{#if isMobile}
 	<style>
 		div {
 			color: white;
